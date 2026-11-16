@@ -1,6 +1,6 @@
 # Task 1: Process Definition & Modeling (Grab Malaysia)
 
-**Notion Electronic Process Guide (EPG) Link:** `https://app.notion.com/p/CKS222-Assignment-Ooi-Ru-Shuang-41a3730380e28052a264f1a9014ac87a?source=copy_link`
+**Notion Electronic Process Guide (EPG) Link:** https://app.notion.com/p/CKS222-Assignment-Ooi-Ru-Shuang-41a3730380e28052a264f1a9014ac87a?source=copy_link
 
 ---
 
