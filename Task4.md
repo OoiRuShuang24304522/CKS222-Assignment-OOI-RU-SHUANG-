@@ -1,4 +1,4 @@
-Task 4: Lean Waste Auditing & Extreme Programming (XP) Practice Alignment
+# Task 4: Lean Waste Auditing & Extreme Programming (XP) Practice Alignment
 Case Study: Grab Malaysia — Proposed GrabCampus Facility & Shuttle Booking with GrabPay Checkout
 Scope: Conceptual integration of a USM Facility Booking System with a Grab-style booking and payment workflow
 Marks: 20 (Lean Waste Audit: 10; XP Engineering Practices: 10)
