@@ -1,10 +1,15 @@
 # Task 4: Lean Waste Auditing & Extreme Programming (XP) Practice Alignment
 --- 
 **Case Study:** Grab Malaysia — Proposed GrabCampus Facility & Shuttle Booking with GrabPay Checkout
+
 **Scope:** Conceptual integration of a USM Facility Booking System with a Grab-style booking and payment workflow
+
 **Marks:** 20 (Lean Waste Audit: 10; XP Engineering Practices: 10)
+
 **Status:** Case-based process improvement proposal; validate examples against actual group-project records before submission.
+
 **Evidence boundary:** GrabCampus is the group's proposed case-study feature, not a verified existing Grab Malaysia service. The situations below are potential failure scenarios and process risks, not claims that Grab Malaysia has experienced these incidents. Replace or supplement them with real evidence from the USM group project where available.
+
 --- 
 # 4.1 Lean Waste Audit & Remedies (10 Marks)
 Lean Software Development aims to maximize value while eliminating activities that consume time or resources without improving the product. For the proposed GrabCampus booking workflow, the audit focuses on four explicit wastes: defects/rework, waiting, extra features (overproduction), and extra processing. 
