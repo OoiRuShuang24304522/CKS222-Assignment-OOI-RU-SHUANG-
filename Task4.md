@@ -4,17 +4,16 @@
 
 **Scope:** Conceptual integration of a USM Facility Booking System with a Grab-style booking and payment workflow
 
-**Marks:** 20 (Lean Waste Audit: 10; XP Engineering Practices: 10)
-
 **Status:** Case-based process improvement proposal; validate examples against actual group-project records before submission.
 
 **Evidence boundary:** GrabCampus is the group's proposed case-study feature, not a verified existing Grab Malaysia service. The situations below are potential failure scenarios and process risks, not claims that Grab Malaysia has experienced these incidents. Replace or supplement them with real evidence from the USM group project where available.
 
 --- 
-# 4.1 Lean Waste Audit & Remedies (10 Marks)
+# 4.1 Lean Waste Audit & Remedies 
 Lean Software Development aims to maximize value while eliminating activities that consume time or resources without improving the product. For the proposed GrabCampus booking workflow, the audit focuses on four explicit wastes: defects/rework, waiting, extra features (overproduction), and extra processing. 
-**Waste 1:** Defects and Rework — Double Booking or Incorrect Payment State
-**Case-specific risk:** Two USM students select the same RM 10.00 sports court slot almost simultaneously. If the booking microservice fails to enforce the three-minute temporary lock atomically, both requests could proceed, causing a double booking. Similarly, a payment failure might incorrectly leave the slot marked as Booked, requiring manual correction and retesting.
+
+## **Waste 1:** Defects and Rework — Double Booking or Incorrect Payment State
+**Case-specific risk:** Two USM students select the same RM 10.00 sports court slot almost simultaneously. If the booking microservice fails to enforce the three-minute temporary lock automically, both requests could proceed, causing a double booking. Similarly, a payment failure might incorrectly leave the slot marked as 'Booked', requiring manual correction and retesting.
 
 **Why this is waste:** Developers and testers must spend additional time diagnosing concurrency errors, reversing inconsistent booking states, and rerunning tests. The work does not add new user value.
 
@@ -22,8 +21,19 @@ Lean Software Development aims to maximize value while eliminating activities th
 
 **Expected improvement / measurement:** Fewer escaped double-booking defects and less time spent on corrective rework. Track failed concurrency tests, defects discovered after merge, and average defect-resolution time.
 
-**Waste 2:** Waiting — Frontend, Booking API, and GrabPay Integration Dependencies
+## **Waste 2:** Waiting — Frontend, Booking API, and GrabPay Integration Dependencies
 **Case-specific risk:** A frontend developer completes the facility-selection screen but cannot finish the checkout flow while waiting for the booking microservice's slot-lock API or a payment-response contract. The QA Automation Engineer may also wait for a testable build before validating the Given-When-Then (GWT) scenarios.
+
+### Summary Table: Given–When–Then (GWT) Scenarios 
+
+| Scenario | Given (Context) | When (Action) | Then (Outcome) |
+|---|---|---|---|
+| **1. Frontend Waiting** | Booking API incomplete | Frontend attempts integration | Task becomes blocked |
+| **2. Mock API Testing** | Backend unavailable | Developer uses mock responses | Frontend testing continues |
+| **3. Slot Locking** | Slot available | Student requests checkout | Slot locked for 3 minutes |
+| **4. Lock Expiration** | Slot locked, payment incomplete | 3 minutes elapse | Slot becomes available |
+| **5. GrabPay Dependency** | Payment contract incomplete | Developer integrates checkout | Integration blocked |
+| **6. CI Testing** | Components implemented | Developer opens PR | Automated tests execute |
 
 **Why this is waste:** Features remain blocked while team members wait for interfaces, reviews, or test environments instead of completing valuable work.
 
@@ -31,7 +41,7 @@ Lean Software Development aims to maximize value while eliminating activities th
 
 **Expected improvement / measurement:** Shorter blocked-task time and faster end-to-end integration. Record hours that tasks remain blocked, pull-request review turnaround, and time from feature completion to integration.
 
-**Waste 3:** Extra Features / Overproduction — Unapproved Booking Enhancements
+## **Waste 3:** Extra Features / Overproduction — Unapproved Booking Enhancements
 **Case-specific risk:** Developers build loyalty points, elaborate receipt customization, or additional dashboard analytics before completing the approved booking-and-payment flow and three-minute slot-lock feature. These enhancements are outside the two prioritized Task 2 user stories.
 
 **Why this is waste:** Unrequested features consume implementation, review, and testing effort while delaying essential functionality.
@@ -40,7 +50,7 @@ Lean Software Development aims to maximize value while eliminating activities th
 
 **Expected improvement / measurement:** More effort spent on approved user value and less unplanned scope. Track unapproved features started, sprint work carried over, and completion of accepted user stories.
 
-**Waste 4:** Extra Processing — Repetitive Manual Builds and Regression Checks
+## **Waste 4:** Extra Processing — Repetitive Manual Builds and Regression Checks
 **Case-specific risk:** After every change to the booking or payment microservice, team members manually rebuild the application and repeat the same checks: successful RM 10.00 GrabPay checkout, insufficient RM 9.99 balance, competing slot requests, and three-minute lock expiry. Repeating these steps by hand can delay feedback and produce inconsistent results.
 
 **Why this is waste:** Repeated manual execution of deterministic checks adds effort without improving the functionality being delivered.
@@ -59,7 +69,7 @@ Extra processing	Repeated manual builds and checkout/lock regression tests	GitHu
 
 ---
 
-# 4.2 XP Engineering Practices (10 Marks)
+# 4.2 XP Engineering Practices
 ---
 Extreme Programming (XP) emphasizes close collaboration, automated testing, and frequent integration to improve code quality and shorten feedback loops. The following three practices are tailored to the same GrabCampus Booking & GrabPay Checkout feature and support Task 1's SPEM-based review workflow and Task 2's user stories.
 **Practice 1:** Pair Programming
@@ -114,6 +124,10 @@ Code change → Feature PR → Automated build and tests → Static/security sca
 
 **Evidence / indicator:** GitHub Actions run logs, test and scan reports, PR approval records, failed-build detection time, and integration frequency.
 Explicit Lean-to-XP Alignment
+
+## Reference link
+https://www.mindbowser.com/devops-ci-cd-pipeline-stages/
+
 XP Practice	Waste(s) Addressed	How It Shortens Feedback / Improves Quality
 Pair Programming	Defects and rework; some waiting	Navigator identifies booking concurrency and payment-state issues while code is written
 TDD	Defects and rework; extra processing	GWT-derived tests expose incorrect behavior before implementation is considered complete
