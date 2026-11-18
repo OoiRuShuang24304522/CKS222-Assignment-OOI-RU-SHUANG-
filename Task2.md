@@ -74,7 +74,14 @@ To eliminate informal requirement creep (such as ad-hoc feature requests sent ov
 * **Then** the system automatically expires the lock, cancels Student A's pending session, and immediately restores Slot #04 to *"Available"* for other students.
 
 ---
+### 2.3 Defiantion of Done (DoD) & Concluding Integration
 
+* **GWT Automtion** : All Given-When-Then acceptance scenarios must be translated into automated integration test scripts.
+* **Coverage Thresholds** : Code modifications must achieve at least 80% unit test coverage and pass SonarQube static analysis with zero critical or blocker vulnerabilities.
+* **Peer Review Sign-off** : The Pull Request (PR) must be audited and approved by a Senior Peer Code Reviewer, verifying that Redis distributed locking and state concurrency controls operate correctly without race conditions.
+* **Traceability Alignment** : The completed user story must link directly to the functional requirements matrix and RACI deliverables established in Task 1.
+
+---
 ### Next Commit TODOs (For Upcoming Days)
 - [ ] Add a brief concluding paragraph summarizing the formal **Definition of Done (DoD)** checklist (e.g., unit tests passed, peer code review approved, GWT scenarios automated).
 - [ ] Cross-check terminology with Task 1 RACI deliverables (`SRS & User Stories`).
