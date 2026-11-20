@@ -1,137 +1,473 @@
+
 # Task 4: Lean Waste Auditing & Extreme Programming (XP) Practice Alignment
---- 
+
 **Case Study:** Grab Malaysia — Proposed GrabCampus Facility & Shuttle Booking with GrabPay Checkout
 
-**Scope:** Conceptual integration of a USM Facility Booking System with a Grab-style booking and payment workflow
+**Scope:** Conceptual integration of a USM Facility Booking System with a Grab-style booking and payment workflow.
 
-**Status:** Case-based process improvement proposal; validate examples against actual group-project records before submission.
+**Status:** Case-based process improvement proposal.
 
-**Evidence boundary:** GrabCampus is the group's proposed case-study feature, not a verified existing Grab Malaysia service. The situations below are potential failure scenarios and process risks, not claims that Grab Malaysia has experienced these incidents. Replace or supplement them with real evidence from the USM group project where available.
+**Evidence Boundary:** GrabCampus is the group's proposed case-study feature, not a verified existing Grab Malaysia service. The examples below describe potential development risks and proposed improvements rather than confirmed incidents within Grab Malaysia.
 
---- 
-# 4.1 Lean Waste Audit & Remedies 
-Lean Software Development aims to maximize value while eliminating activities that consume time or resources without improving the product. For the proposed GrabCampus booking workflow, the audit focuses on four explicit wastes: defects/rework, waiting, extra features (overproduction), and extra processing. 
+---
 
-## **Waste 1:** Defects and Rework — Double Booking or Incorrect Payment State
-**Case-specific risk:** Two USM students select the same RM 10.00 sports court slot almost simultaneously. If the booking microservice fails to enforce the three-minute temporary lock automically, both requests could proceed, causing a double booking. Similarly, a payment failure might incorrectly leave the slot marked as 'Booked', requiring manual correction and retesting.
+## 4.1 Lean Waste Audit & Remedies
 
-**Why this is waste:** Developers and testers must spend additional time diagnosing concurrency errors, reversing inconsistent booking states, and rerunning tests. The work does not add new user value.
+Lean Software Development aims to maximize customer value by eliminating activities that consume time and resources without improving the software product.
 
-**Process remedy:** Apply Test-Driven Development (TDD) to booking-state transitions and concurrency rules. Write automated tests for two simultaneous booking requests, successful payment, insufficient GrabPay balance (RM 9.99 against a RM 10.00 charge), and payment failure. Execute these tests automatically through the CI pipeline. Require the Senior Peer Code Reviewer to inspect the concurrency-lock logic before merge, following Task 1's Code Review & Static Analysis process.
+For the proposed GrabCampus booking system, four Lean wastes are identified: **Defects and Rework, Waiting, Extra Features (Overproduction), and Extra Processing**.
 
-**Expected improvement / measurement:** Fewer escaped double-booking defects and less time spent on corrective rework. Track failed concurrency tests, defects discovered after merge, and average defect-resolution time.
+### Waste 1: Defects and Rework — Double Booking or Incorrect Payment State
 
-## **Waste 2:** Waiting — Frontend, Booking API, and GrabPay Integration Dependencies
-**Case-specific risk:** A frontend developer completes the facility-selection screen but cannot finish the checkout flow while waiting for the booking microservice's slot-lock API or a payment-response contract. The QA Automation Engineer may also wait for a testable build before validating the Given-When-Then (GWT) scenarios.
+**Case-specific risk:**
 
-### Summary Table: Given–When–Then (GWT) Scenarios 
+Two USM students attempt to book the same RM 10.00 sports court slot at almost the same time. If the booking microservice does not properly enforce the temporary slot-lock mechanism, both students might successfully reserve the same slot, resulting in double booking.
+
+Similarly, if a GrabPay transaction fails but the system still marks the slot as "Booked", developers must investigate the error and correct the booking status.
+
+**Why this is waste:**
+
+Developers and testers must spend additional time identifying concurrency errors, correcting booking records, and repeating tests. These activities increase development effort without adding new value to the system.
+
+**Process remedy:**
+
+Apply Test-Driven Development (TDD) to booking-state transitions and concurrency rules.
+
+Developers should create automated tests for:
+
+1. Two students attempting to book the same slot simultaneously.
+2. Successful GrabPay payment.
+3. Insufficient GrabPay balance (RM 9.99 for a RM 10.00 booking).
+4. Failed payment transactions.
+5. Three-minute slot-lock expiration.
+
+These tests should run automatically through the Continuous Integration (CI) pipeline.
+
+Following Task 1's Code Review & Static Analysis process, the Senior Peer Code Reviewer should also verify the concurrency-lock logic before approving a pull request.
+
+**Expected improvement / measurement:**
+
+Earlier detection of booking errors, fewer double-booking incidents, and reduced debugging time.
+
+Suggested indicators include:
+
+- Number of concurrency-related defects.
+- Defects discovered after merging.
+- Average defect-resolution time.
+- Hours spent on corrective rework.
+
+---
+
+### Waste 2: Waiting — Frontend, Booking API, and GrabPay Integration Dependencies
+
+**Case-specific risk:**
+
+A frontend developer completes the facility-selection interface but cannot finish the checkout workflow because the booking microservice's slot-lock API is still under development.
+
+The developer may also need to wait for the GrabPay payment-response contract to be finalized.
+
+Similarly, the QA Automation Engineer may be unable to validate the Given–When–Then (GWT) acceptance criteria until a testable build becomes available.
+
+#### Summary Table: Given–When–Then (GWT) Scenarios
 
 | Scenario | Given (Context) | When (Action) | Then (Outcome) |
 |---|---|---|---|
-| **1. Frontend Waiting** | Booking API incomplete | Frontend attempts integration | Task becomes blocked |
-| **2. Mock API Testing** | Backend unavailable | Developer uses mock responses | Frontend testing continues |
-| **3. Slot Locking** | Slot available | Student requests checkout | Slot locked for 3 minutes |
-| **4. Lock Expiration** | Slot locked, payment incomplete | 3 minutes elapse | Slot becomes available |
-| **5. GrabPay Dependency** | Payment contract incomplete | Developer integrates checkout | Integration blocked |
-| **6. CI Testing** | Components implemented | Developer opens PR | Automated tests execute |
+| **1. Frontend Waiting** | The frontend interface is completed, but the booking API is still under development. | The frontend developer attempts to connect the interface to the booking service. | Integration is delayed because the required API is unavailable. |
+| **2. Mock API Testing** | The backend API is incomplete, but the team has agreed on the API contract. | The frontend developer uses mock API responses to simulate booking operations. | Frontend development and testing can continue without waiting for the backend. |
+| **3. Slot Locking** | A student selects an available RM 10.00 sports court slot. | The student proceeds to checkout and requests a temporary slot lock. | The slot changes from "Available" to "Locked" for three minutes, preventing other students from booking it. |
+| **4. Lock Expiration** | A student has locked a slot but has not completed payment. | Three minutes pass without successful payment. | The system releases the lock and changes the slot status back to "Available". |
+| **5. GrabPay Dependency** | The checkout interface is ready, but the payment-response contract has not been finalized. | The developer attempts to integrate GrabPay with the booking workflow. | Integration is delayed because the system cannot reliably process payment responses. |
+| **6. CI Testing** | The frontend and backend components have been implemented and automated tests are configured. | A developer submits a pull request to GitHub. | The CI pipeline automatically runs the required build and integration tests, providing early feedback. |
 
-**Why this is waste:** Features remain blocked while team members wait for interfaces, reviews, or test environments instead of completing valuable work.
+Scenarios 1 and 5 demonstrate waiting waste, while Scenarios 2 and 6 illustrate how development delays can be reduced. Scenarios 3 and 4 describe the booking behavior that the shared API contract must support.
 
-**Process remedy:** Agree on a shared API contract for Available → Locked → Booked and Locked → Available (after three minutes without payment) before parallel implementation. Use mocked API responses for early frontend testing, make dependencies visible on a shared task board, and set an agreed turnaround target for pull-request reviews. Integrate small working changes frequently instead of waiting for a large end-of-sprint merge.
+**Why this is waste:**
 
-**Expected improvement / measurement:** Shorter blocked-task time and faster end-to-end integration. Record hours that tasks remain blocked, pull-request review turnaround, and time from feature completion to integration.
+Developers and testers cannot complete their assigned tasks while waiting for APIs, reviews, or test environments. These delays reduce productivity and slow down software integration.
 
-## **Waste 3:** Extra Features / Overproduction — Unapproved Booking Enhancements
-**Case-specific risk:** Developers build loyalty points, elaborate receipt customization, or additional dashboard analytics before completing the approved booking-and-payment flow and three-minute slot-lock feature. These enhancements are outside the two prioritized Task 2 user stories.
+**Process remedy:**
 
-**Why this is waste:** Unrequested features consume implementation, review, and testing effort while delaying essential functionality.
+The team should agree on a shared API contract before implementing the frontend and backend components separately.
 
-**Process remedy:** Keep a Product Manager-approved, prioritized backlog. During sprint planning, select only work that directly supports the two user stories and their GWT acceptance criteria. Route new ideas through backlog refinement rather than implementing them immediately. Use the Definition of Done (DoD) to prevent incomplete core features from being treated as finished.
+The contract should define the following booking-state transitions:
 
-**Expected improvement / measurement:** More effort spent on approved user value and less unplanned scope. Track unapproved features started, sprint work carried over, and completion of accepted user stories.
+- `Available → Locked`: A student selects a slot and begins checkout.
+- `Locked → Booked`: The student successfully completes payment.
+- `Locked → Available`: The three-minute lock expires without successful payment.
 
-## **Waste 4:** Extra Processing — Repetitive Manual Builds and Regression Checks
-**Case-specific risk:** After every change to the booking or payment microservice, team members manually rebuild the application and repeat the same checks: successful RM 10.00 GrabPay checkout, insufficient RM 9.99 balance, competing slot requests, and three-minute lock expiry. Repeating these steps by hand can delay feedback and produce inconsistent results.
+Additional improvements include:
 
-**Why this is waste:** Repeated manual execution of deterministic checks adds effort without improving the functionality being delivered.
+1. Using mock API responses to support early frontend development.
+2. Recording task dependencies on a shared task board.
+3. Establishing an agreed turnaround target for pull-request reviews.
+4. Integrating small code changes regularly rather than waiting until the end of a sprint.
 
-**Process remedy:** Configure GitHub Actions Continuous Integration (CI) to trigger on pull requests and relevant pushes. Automatically run unit tests, GWT-derived integration tests, build checks, static analysis, and dependency vulnerability scanning. Following Task 1, block merges with critical security findings or failed required tests, and retain the Automated Static Analysis & Security Scan Report and Code Review Approval & Sign-off Log as evidence. Manual exploratory testing remains useful and should not be eliminated.
+**Expected improvement / measurement:**
 
-**Expected improvement / measurement:** Less repetitive manual work, more consistent verification, and earlier detection of broken builds. Track CI run duration, failed-build detection time, and manual regression-testing effort.
+Reduced waiting time, smoother collaboration, and faster integration between frontend, booking, and payment components.
+
+Suggested indicators include:
+
+- Number of hours development tasks remain blocked.
+- Average pull-request review turnaround time.
+- Time between feature completion and successful integration.
+
 ---
-**Lean Waste Audit Summary**
----
-Lean Waste	GrabCampus Case-Specific Risk	Targeted Remedy	Suggested Indicator
-Defects and rework	Double booking or inconsistent payment/booking status	TDD, automated concurrency tests, peer review	Escaped defects; rework hours
-Waiting	Frontend or QA blocked by API, payment contract, or review	Shared API contracts, mocks, smaller PRs, review targets	Blocked hours; review turnaround
-Extra features / overproduction	Loyalty or dashboard extras before core booking stories	Prioritized backlog, GWT acceptance criteria, DoD	Unapproved scope; carry-over work
-Extra processing	Repeated manual builds and checkout/lock regression tests	GitHub Actions CI, automated tests and scans	Manual test time; CI feedback time
+
+### Waste 3: Extra Features / Overproduction — Unapproved Booking Enhancements
+
+**Case-specific risk:**
+
+Developers may begin implementing loyalty points, additional dashboard analytics, or advanced receipt customization before completing the core booking and payment functionality.
+
+These features are not included in the two prioritized user stories defined in Task 2.
+
+**Why this is waste:**
+
+Developing unnecessary features consumes time that could be spent completing essential requirements. It also creates additional code that must be reviewed, tested, and maintained.
+
+**Process remedy:**
+
+Maintain a prioritized Product Backlog approved by the Product Manager.
+
+During sprint planning, developers should focus on features that directly support Task 2's user stories and GWT acceptance criteria.
+
+New feature suggestions should be recorded for future backlog refinement rather than implemented immediately.
+
+The team should also follow the Definition of Done (DoD) to ensure that essential functionality is fully tested and reviewed before a user story is considered complete.
+
+**Expected improvement / measurement:**
+
+Better use of development resources, fewer unnecessary features, and improved focus on approved requirements.
+
+Suggested indicators include:
+
+- Number of unapproved features started.
+- Amount of unfinished work carried into the next sprint.
+- Number of accepted user stories completed.
 
 ---
 
-# 4.2 XP Engineering Practices
+### Waste 4: Extra Processing — Repetitive Manual Builds and Regression Checks
+
+**Case-specific risk:**
+
+After modifying the booking or payment microservice, developers repeatedly rebuild the application and manually perform the same tests.
+
+These tests may include:
+
+1. Successful RM 10.00 GrabPay checkout.
+2. Insufficient GrabPay balance of RM 9.99.
+3. Two students attempting to reserve the same slot.
+4. Three-minute slot-lock expiration.
+
+Repeating these checks manually after every code change can delay feedback and produce inconsistent testing results.
+
+**Why this is waste:**
+
+Repetitive manual testing consumes development time without adding new functionality. Human errors may also occur when the same checks are performed repeatedly.
+
+**Process remedy:**
+
+Implement Continuous Integration using GitHub Actions.
+
+The CI pipeline should automatically execute the following checks whenever a pull request is opened or relevant code changes are pushed:
+
+1. Application build verification.
+2. Automated unit testing.
+3. GWT-derived integration testing.
+4. Static code analysis.
+5. Dependency vulnerability scanning.
+
+Following Task 1's proposed process, pull requests with failed required tests or critical security findings should not be merged.
+
+The team should also retain the Automated Static Analysis & Security Scan Report and Code Review Approval & Sign-off Log.
+
+Manual exploratory testing should still be performed when human judgment is necessary.
+
+**Expected improvement / measurement:**
+
+Less repetitive manual work, more consistent testing results, and earlier detection of software defects.
+
+Suggested indicators include:
+
+- CI pipeline execution time.
+- Time required to detect failed builds.
+- Hours spent on manual regression testing.
+
 ---
-Extreme Programming (XP) emphasizes close collaboration, automated testing, and frequent integration to improve code quality and shorten feedback loops. The following three practices are tailored to the same GrabCampus Booking & GrabPay Checkout feature and support Task 1's SPEM-based review workflow and Task 2's user stories.
-**Practice 1:** Pair Programming
-**Definition:** Two developers collaborate on one programming task. The driver writes code, while the navigator continuously reviews logic, identifies edge cases, and considers design quality. They regularly swap roles.
+
+### Lean Waste Audit Summary
+
+| Lean Waste | GrabCampus Case-Specific Risk | Targeted Remedy | Suggested Indicator |
+|---|---|---|---|
+| **Defects and Rework** | Double booking or incorrect payment and booking status | TDD, automated concurrency tests, and peer code review | Number of defects and rework hours |
+| **Waiting** | Frontend or QA developers waiting for APIs, payment contracts, or code reviews | Shared API contracts, mock responses, smaller pull requests, and review targets | Blocked hours and review turnaround time |
+| **Extra Features / Overproduction** | Developing loyalty points or dashboard features before completing core booking requirements | Prioritized Product Backlog, GWT acceptance criteria, and Definition of Done (DoD) | Unapproved features and unfinished sprint tasks |
+| **Extra Processing** | Repeated manual builds and regression testing for checkout and slot-lock functions | GitHub Actions CI, automated testing, and security scanning | Manual testing time and CI feedback time |
+
+---
+
+## 4.2 Extreme Programming (XP) Engineering Practices
+
+Extreme Programming (XP) is an Agile software development approach that emphasizes teamwork, automated testing, continuous feedback, and frequent integration.
+
+For the proposed GrabCampus system, three XP practices are recommended: **Pair Programming, Test-First Programming (TDD), and Continuous Integration (CI)**.
+
+These practices support Task 1's code review and static analysis workflow while helping developers satisfy Task 2's user stories and acceptance criteria.
+
+### Practice 1: Pair Programming
+
+**Definition:**
+
+Pair Programming involves two developers working together on the same programming task.
+
+- **Driver:** Writes the source code.
+- **Navigator:** Reviews the code, identifies possible errors, and suggests improvements.
+
+Both developers regularly exchange roles to improve collaboration and share technical knowledge.
 
 **Proposed adoption:**
-1. Assign a Backend Microservice Developer and a second developer/reviewer to the high-risk three-minute slot-lock and GrabPay transaction-state logic.
-2. Work together on an atomic reservation operation that prevents two students from claiming the same slot.
-3. Swap driver and navigator roles at agreed intervals; discuss lock expiry, duplicate requests, and failed payment handling.
-4. Commit the reviewed code and unit tests to a feature branch and open a Feature Pull Request (PR).
-5. Continue the formal Senior Peer Code Reviewer and DevSecOps / QA Lead approval process described in Task 1. Pair programming supports, but does not replace, the required independent PR quality gate.
-Example: The driver implements the rule that a second student cannot reserve a slot already locked by another student. The navigator checks for race conditions and confirms that an unpaid lock expires after three minutes.
 
-**Lean alignment:** Primarily reduces defects and rework through immediate feedback and shared understanding; it may also reduce waiting caused by misunderstood interfaces.
+1. Assign two developers to work on complex booking and payment functionality.
+2. Allow the driver to implement the three-minute slot-lock mechanism while the navigator reviews the logic.
+3. Exchange roles regularly and discuss potential problems such as duplicate bookings, failed payments, and lock expiration.
+4. Commit the completed code and unit tests to a feature branch.
+5. Open a GitHub pull request for formal review.
 
-**Evidence / indicator:** Pair-session notes or linked PRs; concurrency defects found before merge; review rework count.
-**Practice 2:** Test-First Programming / Test-Driven Development (TDD)
-Definition: TDD follows the Red → Green → Refactor cycle: write a failing automated test, implement only enough code to pass it, then improve the design without breaking tests.
+Following Task 1, the Senior Peer Code Reviewer and DevSecOps / QA Lead should still complete the required review and approval process.
 
-Proposed adoption using Task 2 acceptance criteria:
-1. Red: Write a failing test for Task 2's successful checkout: a logged-in student with RM 20.00 pays RM 10.00 for an available sports court, the slot becomes Booked, and a QR pass is generated.
-2. Green: Implement the minimum booking and payment logic needed to satisfy that test.
-3. Refactor: Improve the booking service's code structure while keeping the test passing.
-4. Repeat for the RM 9.99 insufficient-balance case, simultaneous attempts to book the same slot, and three-minute unpaid lock expiry.
-5. Run the complete test suite in CI before the PR can be approved.
-Illustrative test matrix (expected behavior to confirm with Task 2's final GWT/DoD):
-Test	Input / Condition	Expected Result
-TDD-01: Successful payment	Balance RM 20.00; slot RM 10.00	Payment succeeds; slot Booked; QR pass generated
-TDD-02: Insufficient balance	Balance RM 9.99; slot RM 10.00	Payment rejected; no confirmed booking or QR pass
-TDD-03: Concurrent reservation	Student A holds an active three-minute lock	Student B cannot acquire the same slot during the lock
-TDD-04: Lock timeout	Three minutes elapse without successful payment	Slot returns to Available, subject to final agreed rules
+Pair Programming supports the review process but does not replace the formal quality gate.
+
+**Example:**
+
+The driver implements a booking rule that prevents a second student from reserving a slot already locked by another student.
+
+Meanwhile, the navigator checks for possible race conditions and verifies that the system releases the slot after three minutes without successful payment.
+
+**Lean alignment:**
+
+Pair Programming mainly reduces Defects and Rework because developers can identify problems while writing code.
+
+It may also reduce Waiting by helping developers clarify technical requirements together.
+
+**Evidence / measurement:**
+
+- Pair-programming session records.
+- Pull requests linked to collaborative work.
+- Number of defects identified before merging.
+- Number of corrections requested during code review.
+
+---
+
+### Practice 2: Test-First Programming / Test-Driven Development (TDD)
+
+**Definition:**
+
+Test-Driven Development requires developers to write automated tests before implementing the corresponding functionality.
+
+TDD follows the **Red → Green → Refactor** cycle.
+
+**Proposed adoption using Task 2 acceptance criteria:**
+
+1. **Red:** Developers first write an automated test for the booking and payment requirements. For example, a student with RM 20.00 in GrabPay should be able to pay RM 10.00 for an available sports court slot. The test initially fails because the required functionality has not been implemented.
+
+2. **Green:** Developers write the minimum amount of code needed to make the test pass. Once payment is successful, the system should mark the slot as "Booked" and generate a QR pass.
+
+3. **Refactor:** Developers improve the code structure and readability without changing the expected results.
+
+4. **Repeat:** The team applies the same process to other scenarios, including insufficient GrabPay balance (RM 9.99), simultaneous booking attempts, and three-minute slot-lock expiration.
+
+5. **Continuous Testing:** All automated tests are executed through the CI pipeline whenever developers submit code changes.
+
+**Expected improvement:**
+
+Writing tests before implementation helps developers identify problems earlier, reduce repeated debugging, and maintain consistent booking and payment functionality.
+
+#### Illustrative TDD Test Matrix
+
+| Test Case | Input / Condition | Expected Result |
+|---|---|---|
+| **TDD-01: Successful Payment** | GrabPay balance is RM 20.00 and the booking costs RM 10.00. | Payment succeeds, the slot becomes "Booked", and a QR pass is generated. |
+| **TDD-02: Insufficient Balance** | GrabPay balance is RM 9.99, but the booking costs RM 10.00. | Payment is rejected, and no confirmed booking or QR pass is generated. |
+| **TDD-03: Concurrent Reservation** | Student A has already locked the selected slot for three minutes. | Student B cannot book the same slot while the lock remains active. |
+| **TDD-04: Lock Expiration** | A student has locked a slot but does not complete payment within three minutes. | The slot automatically returns to "Available". |
+
+These test cases are based on the proposed GrabCampus workflow and should be checked against the finalized GWT acceptance criteria in Task 2.
+
+**Lean alignment:**
+
+TDD reduces Defects and Rework by identifying incorrect behavior early.
+
+It also reduces Extra Processing by providing automated regression tests that can be executed repeatedly without requiring the same manual checks.
+
+**Evidence / measurement:**
+
+- Automated test cases.
+- Test commits created before implementation.
+- CI test execution results.
+- Regression test pass rate.
+- Defects identified before merging.
+
+---
+
+### Practice 3: Continuous Integration (CI)
+
+**Definition:**
+
+Continuous Integration is an XP engineering practice in which developers frequently integrate small code changes into a shared repository.
+
+Automated builds, tests, and quality checks help identify errors before they affect other parts of the system.
+
+**Proposed adoption aligned with Task 1's SPEM workflow:**
+
+1. The Software Engineer or Backend Microservice Developer creates a feature branch for a Task 2 user story and opens a GitHub pull request.
+
+2. GitHub Actions automatically executes application builds, unit tests, integration tests, static code analysis, and dependency vulnerability checks.
+
+3. The DevSecOps / QA Lead reviews the Automated Static Analysis & Security Scan Report. Pull requests containing failed required tests or critical security findings cannot be merged until the issues are resolved.
+
+4. The Senior Peer Code Reviewer examines booking concurrency rules, payment-state handling, and code maintainability.
+
+5. Developers correct any identified issues and submit updated commits.
+
+6. Once the required checks and approvals pass, the Code Review Approval & Sign-off Log is recorded, and the pull request can be merged into the designated integration or staging branch.
+
+7. The QA Automation Engineer verifies the GWT acceptance criteria, while the DevOps Engineer maintains the CI pipeline according to Task 1's RACI responsibilities.
+
+#### Illustrative CI Feedback Loop
+
+```text
+Code Change
+    ↓
+GitHub Feature Pull Request
+    ↓
+Automated Build and Tests
+    ↓
+Static Analysis and Security Scan
+    ↓
+Peer Code Review
+    ↓
+Fix Identified Issues (If Required)
+    ↓
+Approval and Merge
+```
+
+**Lean alignment:**
+
+Continuous Integration addresses several Lean wastes:
+
+- **Extra Processing:** Automates repetitive builds and regression tests.
+- **Waiting:** Provides faster feedback and reduces integration delays.
+- **Defects and Rework:** Detects software errors before code changes are merged.
+
+**Expected improvement:**
+
+Developers receive earlier feedback, reduce repetitive testing, and maintain more reliable integration between the booking and payment components.
+
+**Evidence / measurement:**
+
+- GitHub Actions execution logs.
+- Automated test results.
+- Static analysis and security scan reports.
+- Pull-request approval records.
+- Failed-build detection time.
+- Frequency of successful code integration.
+
+---
+
+### Explicit Lean-to-XP Alignment
+
+| XP Practice | Lean Waste Addressed | How It Improves Software Development |
+|---|---|---|
+| **Pair Programming** | Defects and Rework; Waiting | Two developers work together to identify booking errors and concurrency issues earlier, reducing misunderstandings and repeated corrections. |
+| **Test-Driven Development (TDD)** | Defects and Rework; Extra Processing | Automated tests verify booking and payment requirements before implementation is considered complete, reducing debugging and repetitive manual testing. |
+| **Continuous Integration (CI)** | Extra Processing; Waiting; Defects and Rework | Automated builds, tests, and security scans provide early feedback whenever developers submit changes, reducing integration delays and manual checking. |
+
+### Integration with Tasks 1 and 2
+
+The proposed XP practices are connected to the earlier assignment tasks.
+
+**Task 1: Process Definition & Modeling**
+
+Task 1 defines the formal Code Review & Static Analysis workflow, including pull requests, automated security scanning, peer code review, approval records, and RACI responsibilities.
+
+Task 4 uses these process controls to support Pair Programming, TDD, and Continuous Integration.
+
+**Task 2: Requirements Quality & Agile User Stories**
+
+Task 2 defines the expected booking and payment behavior through Agile User Stories, INVEST evaluation, and Given–When–Then acceptance criteria.
+
+Task 4 uses these requirements to identify potential development waste and propose automated tests for successful payment, insufficient balance, concurrent bookings, and slot-lock expiration.
+
+Together, the three tasks connect requirements, software development practices, quality assurance, and process improvement.
+
+---
+
+## 4.3 GitHub Repository Evidence (Mandatory)
+
+GitHub commit history is required to demonstrate genuine and continuous contributions from all five group members throughout the assignment.
+
+The repository should contain meaningful source-code changes or report revisions made using each member's individual USM student email address.
+
+### Repository Information
+
+**GitHub Repository URL:** [Insert actual GitHub repository URL]
+
+### Required Commit History Evidence
+
+The repository evidence must demonstrate:
+
+1. Active contributions from all five group members.
+2. Individual USM student email addresses.
+3. Genuine commit timestamps covering multiple weeks.
+4. Meaningful code changes or report draft revisions.
+5. Unedited screenshots or textual Git logs showing the actual commit history.
+
+### Git Command for Commit History
+
+Run the following command inside the project repository:
+
+```bash
+git log --all --date=iso --pretty=format:"%h | %an | %ae | %ad | %s"
+```
+
+This command displays the commit hash, contributor name, email address, timestamp, and commit message.
+
+### Evidence Attachment
+
+**Figure 1: GitHub Commit History**
+
+[Insert actual GitHub commit-history screenshot or textual evidence]
+
+**Evidence Explanation:**
+
+The attached GitHub commit history should demonstrate the group's actual contributions across multiple weeks. Each commit should identify its author, USM student email address, timestamp, and corresponding code or documentation changes.
+
+These records are intended to support the assignment's requirement for continuous and distributed collaboration among all five group members.
+
+**Important:** This section must be completed with genuine repository evidence before submission. Do not fabricate, alter, or backdate commits.
+
+---
+
+## 4.4 Conclusion
+
+The proposed Lean Waste Audit identifies four potential sources of inefficiency in the GrabCampus booking and payment workflow: Defects and Rework, Waiting, Extra Features, and Extra Processing.
+
+These wastes may affect software quality, development time, and collaboration between team members.
+
+To address these risks, three Extreme Programming practices are recommended.
+
+Pair Programming supports collaborative problem-solving and early defect detection. Test-Driven Development helps developers verify booking and payment requirements before implementation is considered complete. Continuous Integration automates repetitive checks and provides faster feedback on code changes.
+
+These practices also complement Task 1's code review and static analysis process and Task 2's Agile User Stories and GWT acceptance criteria.
+
+Overall, the proposed improvements aim to reduce unnecessary development effort, improve code quality, and support a more efficient software development process.
+
+Their effectiveness should be evaluated using actual project evidence, including automated test results, pull-request records, task completion times, and GitHub commit history.
+
+---
+
+## References
 
 
-**Lean alignment:** Directly reduces defects and rework and avoids repeated manual checks under extra processing.
-
-**Evidence / indicator:** Test commits preceding implementation commits, CI test results, regression pass rate, and defects discovered before merge.
-**Practice 3:** Continuous Integration (CI)
-Definition: Developers frequently integrate small changes into a shared repository. Automated builds, tests, and quality checks provide rapid feedback on each proposed change.
-
-Proposed adoption aligned with Task 1's SPEM workflow:
-1. The Software Engineer / Backend Microservice Developer creates a feature branch for a Task 2 user story and opens a Feature PR.
-2. A GitHub Actions workflow triggers on the PR and executes the application build, automated unit/integration tests, static code analysis, and dependency vulnerability checks.
-3. The DevSecOps / QA Lead checks the Automated Static Analysis & Security Scan Report. Failed required tests or critical/blocker findings prevent merging.
-4. The Senior Peer Code Reviewer checks concurrency locks, payment-state integrity, and maintainability; the developer fixes requested changes.
-5. Once required checks and approvals pass, the Code Review Approval & Sign-off Log is recorded and the PR can merge into the designated integration/staging branch.
-6. The QA Automation Engineer verifies the GWT scenarios; the DevOps Engineer maintains the pipeline and release process according to Task 1's RACI responsibilities.
-Illustrative feedback loop:
-
-Code change → Feature PR → Automated build and tests → Static/security scan → Peer review → Fix if needed → Approval and merge
-
-**Lean alignment:** Reduces extra processing by automating repeatable checks, waiting by providing faster integration feedback, and defects and rework by catching failures before merge.
-
-**Evidence / indicator:** GitHub Actions run logs, test and scan reports, PR approval records, failed-build detection time, and integration frequency.
-Explicit Lean-to-XP Alignment
-
-## Reference link
-https://www.mindbowser.com/devops-ci-cd-pipeline-stages/
-
-XP Practice	Waste(s) Addressed	How It Shortens Feedback / Improves Quality
-Pair Programming	Defects and rework; some waiting	Navigator identifies booking concurrency and payment-state issues while code is written
-TDD	Defects and rework; extra processing	GWT-derived tests expose incorrect behavior before implementation is considered complete
-CI	Extra processing; waiting; defects and rework	Automated builds, tests, and scans flag failures on each PR instead of at final integration
-
-
-Integration with teammates' work: Task 2 defines what correct behavior means through user stories and GWT scenarios; Task 4 turns that behavior into TDD tests and rapid feedback; Task 1 provides the formal PR, security scanning, peer review, sign-off, and RACI controls that govern merging.
