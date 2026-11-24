@@ -429,13 +429,13 @@ The following screenshots show the group's actual GitHub commit history, includi
 
 #### Figure 1: GitHub Commit History (19–24 November 2026)
 
-![GitHub Commit History from 19 to 24 November 2026](evidence/commit-history-1.png)
+<img width="1920" height="1200" alt="Screenshot (43)" src="https://github.com/user-attachments/assets/8559e387-561e-444c-90e8-834fd7950df4" />
 
 *Figure 1: GitHub commit history showing contributions and revisions made between 19 November and 24 November 2026.*
 
 #### Figure 2: GitHub Commit History (17–18 November 2026)
 
-![GitHub Commit History from 17 to 18 November 2026](evidence/commit-history-2.png)
+<img width="1920" height="1200" alt="Screenshot (44)" src="https://github.com/user-attachments/assets/6befde65-5345-4c79-8e93-1feb86695053" />
 
 *Figure 2: GitHub commit history showing contributions and revisions made between 17 November and 18 November 2026.*
 
@@ -513,31 +513,8 @@ The group's GitHub workflow supports the collaborative and iterative principles 
 
 The repository demonstrates iterative documentation and distributed contributions. The proposed XP engineering practices for GrabCampus are described separately in Section 4.2.
 
-### 4.3.8 Original Git Commit Log
 
-The following Git command can be executed inside the local repository to retrieve the original commit history:
-
-```bash
-git log --all --date=iso --pretty=format:"%h | %an | %ae | %ad | %s"
-```
-
-The command displays the following information:
-
-- Commit hash
-- Author name
-- Author email address
-- Commit date and time
-- Commit message
-
-**Original Git Log Output:**
-
-```text
-[Insert genuine Git log output here]
-```
-
-The original Git log is required to verify the individual USM student email addresses and exact contribution timestamps.
-
-### 4.3.9 Evidence Verification Summary
+### 4.3.8 Evidence Verification Summary
 
 | Assignment Evidence Requirement | Verification Status |
 |---|---|
