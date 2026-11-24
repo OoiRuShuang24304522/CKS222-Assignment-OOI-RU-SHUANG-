@@ -1,5 +1,7 @@
 # Task 1: Process Definition & Modeling (Shift-Left Quality Engineering Applied to Facility Booking & Concurrency Locking)
 
+Drawing on **Grab Malaysia’s Shift-Left quality engineering principles**  to prevent ad-hoc merging, late-stage defect leakage, and race conditions, the standardized **Code Review & Static Analysis** workflow below is modeled in **OMG SPEM 2.0** and applied to our **USM Campus Facility Booking & Concurrency Locking** lifecycle:
+
 **Notion Electronic Process Guide (EPG) Link:** https://app.notion.com/p/CKS222-Assignment-Ooi-Ru-Shuang-41a3730380e28052a264f1a9014ac87a?source=copy_link
 
 ---
