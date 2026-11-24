@@ -404,49 +404,152 @@ Together, the three tasks connect requirements, software development practices, 
 
 ---
 
+
 ## 4.3 GitHub Repository Evidence (Mandatory)
 
-GitHub commit history is required to demonstrate genuine and continuous contributions from all five group members throughout the assignment.
+GitHub is used to manage the assignment documentation, track individual contributions, and support collaboration among all five group members.
 
-The repository should contain meaningful source-code changes or report revisions made using each member's individual USM student email address.
+The repository's commit history provides evidence of continuous contributions, document revisions, and improvements made throughout the assignment.
 
-### Repository Information
+### 4.3.1 Repository Information
 
-**GitHub Repository URL:** [Insert actual GitHub repository URL]
+**GitHub Repository:** [CKS222 Assignment Repository](https://github.com/OoiRuShuang24304522/CKS222-Assignment-OOI-RU-SHUANG-)
 
-### Required Commit History Evidence
+**Branch:** `main`
 
-The repository evidence must demonstrate:
+**Commit History:** [View GitHub Commit History](https://github.com/OoiRuShuang24304522/CKS222-Assignment-OOI-RU-SHUANG-/commits/main/)
 
-1. Active contributions from all five group members.
-2. Individual USM student email addresses.
-3. Genuine commit timestamps covering multiple weeks.
-4. Meaningful code changes or report draft revisions.
-5. Unedited screenshots or textual Git logs showing the actual commit history.
+**Evidence Period:** 17 November 2026 – 24 November 2026
 
-### Git Command for Commit History
+**Number of Contributors Observed:** 5 group members
 
-Run the following command inside the project repository:
+### 4.3.2 GitHub Commit History Screenshots
+
+The following screenshots show the group's actual GitHub commit history, including contributor usernames, commit messages, commit hashes, and contribution dates.
+
+#### Figure 1: GitHub Commit History (19–24 November 2026)
+
+![GitHub Commit History from 19 to 24 November 2026](evidence/commit-history-1.png)
+
+*Figure 1: GitHub commit history showing contributions and revisions made between 19 November and 24 November 2026.*
+
+#### Figure 2: GitHub Commit History (17–18 November 2026)
+
+![GitHub Commit History from 17 to 18 November 2026](evidence/commit-history-2.png)
+
+*Figure 2: GitHub commit history showing contributions and revisions made between 17 November and 18 November 2026.*
+
+### 4.3.3 Commit History Summary
+
+The following table summarizes the fully visible commit records from the attached GitHub screenshots.
+
+| Date | GitHub Contributor | Commit Message | Commit Hash |
+|---|---|---|---|
+| 24 Nov 2026 | OoiRuShuang24304522 | Revise Task1.md for improved clarity and structure | `8f6f0e3` |
+| 21 Nov 2026 | KuYunShuang24304022 | Revise user stories and acceptance criteria for clarity | `0e45631` |
+| 20 Nov 2026 | CHIAMZHIHUAI24303835 | Revise Lean Waste Audit and XP Practices for GrabCampus | `646cd1c` |
+| 20 Nov 2026 | OoiRuShuang24304522 | Revise roles, tasks, and work products in Task1.md | `41c807f` |
+| 20 Nov 2026 | LIMBINGYI24304515 | Enhance V-Model design with GrabCampus case study | `107eda6` |
+| 19 Nov 2026 | CheahJinnHonn24303397 | Update Task5.md | `46b2c89` |
+| 19 Nov 2026 | CheahJinnHonn24303397 | Update Task5.md | `e6c570d` |
+| 19 Nov 2026 | KuYunShuang24304022 | Expanded INVEST evaluation into tables and added GWT scenarios | `fa104b9` |
+| 18 Nov 2026 | LIMBINGYI24304515 | Expand Task 3 with V-Model details and mapping | `caf7968` |
+| 18 Nov 2026 | CheahJinnHonn24303397 | Update Task5.md | `40e65d7` |
+| 18 Nov 2026 | CHIAMZHIHUAI24303835 | Revise Task4.md for clarity and structure improvements | `2a8df24` |
+| 17 Nov 2026 | LIMBINGYI24304515 | Fix header formatting in Task3.md | `3e59938` |
+| 17 Nov 2026 | LIMBINGYI24304515 | Enhance Task 3 with V-Model design explanation | `83d9c2f` |
+| 17 Nov 2026 | KuYunShuang24304022 | Revise user stories and acceptance criteria | `944d57f` |
+| 17 Nov 2026 | CHIAMZHIHUAI24303835 | Update Task4.md | `529cdd3` |
+| 17 Nov 2026 | CHIAMZHIHUAI24303835 | Update Task4.md | `5d40380` |
+| 17 Nov 2026 | CHIAMZHIHUAI24303835 | Update header formatting in Task4.md | `4fc04b5` |
+| 17 Nov 2026 | CHIAMZHIHUAI24303835 | Document Lean Waste Audit and XP Practices for GrabCampus | `fb01898` |
+| 17 Nov 2026 | CheahJinnHonn24303397 | Update Task1.md | `238110b` |
+
+**Note:** This table is a transcription of 19 fully visible commit records from the screenshots. It is not the complete repository history or an original Git log.
+
+### 4.3.4 Individual Contribution Summary
+
+| Group Member | Matric Number | GitHub Username | Observed Contribution |
+|---|---|---|---|
+| Ooi Ru Shuang | 24304522 | `OoiRuShuang24304522` | Task 1: Process Definition & Modeling, including roles, tasks, work products, and documentation improvements. |
+| Ku Yun Shuang | 24304022 | `KuYunShuang24304022` | Task 2: Agile User Stories, INVEST evaluation, and GWT acceptance criteria. |
+| Lim Bing Yi | 24304515 | `LIMBINGYI24304515` | Task 3: V-Model design, explanation, mapping, and documentation improvements. |
+| Chiam Zhi Huai | 24303835 | `CHIAMZHIHUAI24303835` | Task 4: Lean Waste Audit, XP Engineering Practices, and documentation improvements. |
+| Cheah Jinn Honn | 24303397 | `CheahJinnHonn24303397` | Task 5 documentation updates and additional contributions to Task 1. |
+
+### 4.3.5 Evidence Analysis
+
+The GitHub commit history shows that all five group members contributed to the assignment through their respective GitHub accounts.
+
+The recorded contributions include initial documentation, content expansion, technical explanations, structural improvements, and revisions to existing assignment sections.
+
+The screenshots show contributions between 17 November and 24 November 2026, rather than a single final submission.
+
+For example, Task 4 was initially documented on 17 November 2026 and subsequently revised on 18 November and 20 November 2026. These revisions demonstrate an iterative approach to improving the clarity, structure, and technical content of the assignment.
+
+The commit history also shows that group members contributed to different assignment tasks, supporting distributed collaboration and individual accountability.
+
+### 4.3.6 Relationship Between GitHub Evidence and Lean Software Development
+
+The group's use of GitHub supports several Lean Software Development principles.
+
+| Lean Principle | Application in the Group Assignment | Expected Benefit |
+|---|---|---|
+| **Eliminate Waste** | Maintain assignment documents in a shared repository instead of distributing multiple separate file versions. | Reduces duplicated work and confusion over document versions. |
+| **Build Quality In** | Revise technical explanations, user stories, and process descriptions throughout the assignment. | Helps identify and correct documentation problems earlier. |
+| **Create Knowledge** | Share assignment documents and maintain a visible revision history. | Improves knowledge sharing among group members. |
+| **Deliver Fast** | Submit smaller documentation updates instead of waiting until the entire assignment is completed. | Supports earlier feedback and continuous progress. |
+| **Respect People** | Allow individual members to contribute through their respective GitHub accounts. | Encourages individual responsibility and collaboration. |
+
+### 4.3.7 Relationship Between GitHub Evidence and XP Practices
+
+The group's GitHub workflow supports the collaborative and iterative principles of Extreme Programming.
+
+| XP Practice | Relationship to the Group's GitHub Workflow |
+|---|---|
+| **Pair Programming** | The shared repository can support collaborative development and review. However, commit history alone does not prove that pair programming sessions occurred. |
+| **Test-First Programming (TDD)** | GitHub can record automated test cases and implementation changes. The current documentation commits do not independently demonstrate that TDD was performed. |
+| **Continuous Integration (CI)** | Frequent commits support the principle of integrating small changes regularly. Automated CI execution would require separate evidence, such as GitHub Actions logs and test results. |
+
+The repository demonstrates iterative documentation and distributed contributions. The proposed XP engineering practices for GrabCampus are described separately in Section 4.2.
+
+### 4.3.8 Original Git Commit Log
+
+The following Git command can be executed inside the local repository to retrieve the original commit history:
 
 ```bash
 git log --all --date=iso --pretty=format:"%h | %an | %ae | %ad | %s"
 ```
 
-This command displays the commit hash, contributor name, email address, timestamp, and commit message.
+The command displays the following information:
 
-### Evidence Attachment
+- Commit hash
+- Author name
+- Author email address
+- Commit date and time
+- Commit message
 
-**Figure 1: GitHub Commit History**
+**Original Git Log Output:**
 
-[Insert actual GitHub commit-history screenshot or textual evidence]
+```text
+[Insert genuine Git log output here]
+```
 
-**Evidence Explanation:**
+The original Git log is required to verify the individual USM student email addresses and exact contribution timestamps.
 
-The attached GitHub commit history should demonstrate the group's actual contributions across multiple weeks. Each commit should identify its author, USM student email address, timestamp, and corresponding code or documentation changes.
+### 4.3.9 Evidence Verification Summary
 
-These records are intended to support the assignment's requirement for continuous and distributed collaboration among all five group members.
+| Assignment Evidence Requirement | Verification Status |
+|---|---|
+| Contributions from all five group members | Confirmed from the screenshots |
+| Individual GitHub contributor accounts | Confirmed from the screenshots |
+| Meaningful assignment documentation and revisions | Supported by visible commit messages |
+| Contributions across multiple weeks | Screenshots show 17–24 November 2026; confirm the complete period using the original Git log |
+| Individual USM student email addresses | Pending verification through the original Git log |
+| Unedited GitHub commit-history screenshots | Provided in Figures 1 and 2 |
+| Original textual Git log | Pending attachment |
 
-**Important:** This section must be completed with genuine repository evidence before submission. Do not fabricate, alter, or backdate commits.
+Overall, the GitHub repository provides evidence of collaboration, iterative documentation, and distributed contributions among all five group members. The original Git log should also be attached to complete the mandatory evidence requirements specified in the assignment brief.
 
 ---
 
