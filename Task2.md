@@ -17,7 +17,7 @@ Below, this backlog item is decomposed into two high-quality Agile User Stories 
 > **I want** to reserve an available campus sports facility or shuttle seat and pay directly using my GrabPay e-wallet balance,  
 > **So that** I can confirm my booking immediately without carrying physical cash or manually uploading payment receipts.
 
-#### INVEST Criteria Evaluation — User Story 1
+#### Table 2.1: INVEST Criteria Evaluation — User Story 1
 | INVEST Criterion | Detailed Evaluation & Justification |
 | :--- | :--- |
 | **Independent** | Encapsulates an end-to-end vertical slice (selecting an open slot and executing a standard GrabPay payment API call). It can be developed, tested, and deployed independently of secondary enhancements such as GrabRewards points redemption or recurring weekly reservations. |
@@ -34,7 +34,7 @@ Below, this backlog item is decomposed into two high-quality Agile User Stories 
 > **I want** the system to place a temporary 3-minute lock on my selected facility or shuttle slot once I enter the GrabPay checkout screen,  
 > **So that** another student cannot double-book the exact same slot while I am completing my payment authentication.
 
-#### INVEST Criteria Evaluation — User Story 2
+#### Table 2.2: INVEST Criteria Evaluation — User Story 2
 | INVEST Criterion | Detailed Evaluation & Justification |
 | :--- | :--- |
 | **Independent** | Operates at the reservation state-management layer (using a time-bound distributed lock such as Redis TTL) and can be built and verified independently of front-end promotional banners or payment UI redesigns. |
@@ -55,7 +55,7 @@ To eliminate ambiguity between developers and QA engineers, each user story is a
 * **Scenario 1.1 (Positive Path): Successful Slot Reservation and Instant GrabPay Deduction**
   * **Given** a student is logged into the Grab app with a verified USM student profile and holds an active GrabPay balance of `RM 20.00`,
   * **When** the student selects an available badminton court slot priced at `RM 10.00` and confirms payment via GrabPay,
-  * **Then** the system deducts exactly `RM 10.00` from the student's GrabPay wallet, updates the slot status from `"Available"` to `"Booked"`, and generates a unique QR booking pass within 2 seconds.
+  * **Then** the system deducts exactly `RM 10.00` from the student's GrabPay wallet, updates the slot status from `"Available"` to `"Booked"`, and generates a unique QR booking pass within 2 seconds (aligning with the Task 3.2 latency target).
 
 * **Scenario 1.2 (Negative / Boundary Path): Transaction Blocked at Insufficient Balance Boundary**
   * **Given** a verified USM student has selected an available slot priced at `RM 10.00`,
@@ -76,13 +76,12 @@ To eliminate ambiguity between developers and QA engineers, each user story is a
   * **Given** Student A holds an active 3-minute temporary lock on Shuttle Seat `#04`,
   * **When** the countdown timer reaches the exact boundary of `00:00` (`180 seconds` elapsed) without receiving a payment confirmation callback,
   * **Then** the system automatically invalidates Student A’s checkout session, releases the lock, and immediately restores Shuttle Seat `#04` to `"Available"` status for other students.
-    
+
 ---
 
-### 2.3 Defiantion of Done (DoD) & Concluding Integration
-
+### Formal Definition of Done (DoD)
+Before either user story can be marked as `"Done"` and merged into the GrabCampus release branch, the Scrum team must verify all of the following conditions:
 1. **Acceptance Criteria Verified:** All positive and negative/boundary GWT scenarios pass 100% in automated integration tests.
-2. **Code Quality & Static Analysis:** Source code passes SonarQube static analysis with zero critical security vulnerabilities or blocker code smells (aligned with Task 1 SPEM 2.0 standards).
+2. **Code Quality & Static Analysis:** Source code passes SonarQube static analysis with zero critical security vulnerabilities or blocker code smells (aligned with Task 1.1 SPEM 2.0 standards).
 3. **Peer Code Review:** At least one Senior Peer Code Reviewer has approved the Pull Request, specifically verifying concurrency lock safety and financial transaction idempotency.
 4. **Documentation Updated:** API endpoints and error codes are updated in the Notion Electronic Process Guide (EPG) and linked to the sprint release notes.
-  
