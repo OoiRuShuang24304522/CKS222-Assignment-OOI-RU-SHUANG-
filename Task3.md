@@ -6,7 +6,7 @@ To eliminate late-stage defect leaks in Grab Malaysia’s **GrabCampus Integrate
 
 ## 3.1 Custom V-Model Symmetrical Mapping: Atomic Slot-Lock & GrabPay Checkout Engine
 
-![GrabCampus Symmetrical V-Model Architecture](./grabcampus-v-model.png)
+![GrabCampus Symmetrical V-Model Architecture](./images/grabcampus-v-model.png)
 *Figure 3.1: Custom Symmetrical V-Model mapping left-side constructive design phases to right-side analytical V&V phases for GrabCampus.*
 
 ### Mechanics of Horizontal Symmetry & Parallel Test Engineering
