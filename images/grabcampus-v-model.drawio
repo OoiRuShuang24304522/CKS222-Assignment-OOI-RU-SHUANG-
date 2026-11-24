@@ -1,0 +1,109 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="iNd18uSMEpvdmtlUTlnm">
+    <mxGraphModel dx="1141" dy="876" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="47AZKO39c0F_Fs76L7nz-10" edge="1" parent="1" source="MwyjVxNvRnsW3lwCOEVa-1" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;" target="47AZKO39c0F_Fs76L7nz-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-25" edge="1" parent="1" source="MwyjVxNvRnsW3lwCOEVa-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;dashed=1;startArrow=classic;startFill=1;" target="47AZKO39c0F_Fs76L7nz-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MwyjVxNvRnsW3lwCOEVa-1" parent="1" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;div&gt;1. Business &amp;amp; User Requirements&lt;/div&gt;&lt;div&gt;• INVEST User Stories &amp;amp; GWT Baseline&lt;/div&gt;&lt;div&gt;• Owner: Product Manager&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="240" x="108" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="MwyjVxNvRnsW3lwCOEVa-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;CONSTRUCTIVE DESIGN PHASES (Left Arm)&lt;/div&gt;&lt;div&gt;&quot;Building the System Right&quot;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="270" x="93" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-26" edge="1" parent="1" source="47AZKO39c0F_Fs76L7nz-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;dashed=1;startArrow=classic;startFill=1;" target="47AZKO39c0F_Fs76L7nz-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-1" parent="1" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;div&gt;2. Software &amp;amp; System Requirements (SRS)&lt;/div&gt;&lt;div&gt;• &amp;lt; 2.0s Checkout SLA &amp;amp; Local Biometric MFA Spec&lt;/div&gt;&lt;div&gt;• Owner: Tech Lead&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="280" x="115" y="365" as="geometry" />
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-27" edge="1" parent="1" source="47AZKO39c0F_Fs76L7nz-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;dashed=1;startArrow=classic;startFill=1;" target="47AZKO39c0F_Fs76L7nz-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-2" parent="1" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;div&gt;3. Microservice &amp;amp; API Architecture&lt;/div&gt;&lt;div&gt;• Microservice &amp;amp; API Blueprint&lt;/div&gt;&lt;div&gt;• 3-Min Slot Lock (Available → Locked → Booked)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="310" x="134" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-28" edge="1" parent="1" source="47AZKO39c0F_Fs76L7nz-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;dashed=1;startArrow=classic;startFill=1;" target="47AZKO39c0F_Fs76L7nz-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-3" parent="1" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;div&gt;4. Detailed Module &amp;amp; DB Design&lt;/div&gt;&lt;div&gt;• Atomic Lock/Wallet SQL &amp;amp; HMAC Signing Specs&lt;/div&gt;&lt;div&gt;• Executor: Backend Microservice Developer&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="270" x="204" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-4" parent="1" style="html=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;div&gt;5. Implementation &amp;amp; Secure Coding (Apex)&lt;/div&gt;&lt;div&gt;• Booking &amp;amp; GrabPay Integration Source Code&lt;/div&gt;&lt;div&gt;• TDD, Pair Programming &amp;amp; Defensive Coding&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="327" x="380" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-18" edge="1" parent="1" source="47AZKO39c0F_Fs76L7nz-5" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;startArrow=classic;startFill=1;endArrow=none;endFill=0;" target="47AZKO39c0F_Fs76L7nz-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-5" parent="1" style="html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;div&gt;1. User Acceptance Testing (UAT) [Validation]&lt;/div&gt;&lt;div&gt;• Staging Booking &amp;amp; Edge-Balance Flows (RM 9.99 vs RM 10.00)&lt;/div&gt;&lt;div&gt;• Output: Security &amp;amp; UAT Sign-off Report&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="360" x="685" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-6" parent="1" style="html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;div&gt;2. System &amp;amp; Non-Functional Testing [Verification &amp;amp; Validation]&lt;/div&gt;&lt;div&gt;• Peak Load (&amp;lt; 2.0s), Timeout Failover &amp;amp; MFA Pen-Tests&lt;/div&gt;&lt;div&gt;• Output: Load, Failover &amp;amp; Security Scan Reports&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="340" x="660" y="365" as="geometry" />
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-7" parent="1" style="html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;div&gt;3. Subsystem &amp;amp; API Integration Testing [Verification]&lt;/div&gt;&lt;div&gt;• Service Contracts, Slot-Lock Races &amp;amp; Rollbacks&lt;/div&gt;&lt;div&gt;• Output: Automated Integration Test Suite&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="290" x="630" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-8" parent="1" style="html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;div&gt;4. Automated Unit &amp;amp; Static Testing [Verification]&lt;/div&gt;&lt;div&gt;• TDD Unit Suites, SAST Scan &amp;amp; SPEM Peer PR Gate&lt;/div&gt;&lt;div&gt;• Output: Static Scan Report &amp;amp; PR Sign-off Log&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="320" x="600" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-9" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;ANALYTICAL V&amp;amp;V PHASES (Right Arm)&lt;/div&gt;&lt;div&gt;&quot;Testing Against Specs &amp;amp; User Needs&quot;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="270" x="730" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-19" edge="1" parent="1" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;startArrow=classic;startFill=1;endArrow=none;endFill=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="815" y="415" as="sourcePoint" />
+            <mxPoint x="780" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-20" edge="1" parent="1" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.392;entryY=0.05;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;entryPerimeter=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;" target="47AZKO39c0F_Fs76L7nz-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="765" y="530" as="sourcePoint" />
+            <mxPoint x="730" y="595" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-21" edge="1" parent="1" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.866;entryY=-0.048;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;entryPerimeter=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;" target="47AZKO39c0F_Fs76L7nz-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="695" y="650" as="sourcePoint" />
+            <mxPoint x="660" y="715" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-22" edge="1" parent="1" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="275.5" y="415" as="sourcePoint" />
+            <mxPoint x="302.5" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-23" edge="1" parent="1" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.539;entryY=-0.004;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;entryPerimeter=0;" target="47AZKO39c0F_Fs76L7nz-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="321" y="530" as="sourcePoint" />
+            <mxPoint x="348" y="595" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-24" edge="1" parent="1" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.063;entryY=0.019;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;entryPerimeter=0;" target="47AZKO39c0F_Fs76L7nz-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="376" y="650" as="sourcePoint" />
+            <mxPoint x="403" y="715" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-29" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Parallel UAT Plan &amp;amp; GWT Scenarios" vertex="1">
+          <mxGeometry height="30" width="210" x="412" y="248" as="geometry" />
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-31" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Parallel System &amp;amp; Performance Test Spec" vertex="1">
+          <mxGeometry height="30" width="260" x="395" y="363" as="geometry" />
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-32" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Parallel API Contract &amp;amp; Concurrency Test Plan" vertex="1">
+          <mxGeometry height="30" width="140" x="467" y="472" as="geometry" />
+        </mxCell>
+        <mxCell id="47AZKO39c0F_Fs76L7nz-33" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Parallel TDD Unit Specs &amp;amp; SAST Ruleset" vertex="1">
+          <mxGeometry height="40" width="90" x="492" y="578" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
