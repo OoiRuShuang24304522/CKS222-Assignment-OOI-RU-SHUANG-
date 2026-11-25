@@ -119,5 +119,5 @@ To verify authentic, multi-member participation across the SPEM 2.0 Electronic P
 
 *Figure 1.3.8: Notion collaborative update history for Cheah Jinn Honn (`24303397`).*
 
-To verify authentic team participation across the [SPEM 2.0 Electronic Process Guide (EPG)](https://app.notion.com/p/Task-1-SPEM-2-0-Process-Modeling-Grab-Shift-Left-Benchmark-Applied-to-Booking-Concurrency-Lockin-41a3730380e28052a264f1a9014ac87a?source=copy_link), the Notion version history logs below capture timestamped edits from all five group members between 16 and 25 November 2026.
+Access the live Notion Electronic Process Guide (EPG) containing our interconnected SPEM 2.0 Roles, Work Products, and Tasks relational databases here: [SPEM 2.0 Electronic Process Guide (EPG)](https://app.notion.com/p/Task-1-SPEM-2-0-Process-Modeling-Grab-Shift-Left-Benchmark-Applied-to-Booking-Concurrency-Lockin-41a3730380e28052a264f1a9014ac87a?source=copy_link)
 
