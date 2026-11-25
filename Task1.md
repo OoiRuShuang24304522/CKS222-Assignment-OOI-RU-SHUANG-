@@ -2,8 +2,6 @@
 
 Drawing on **Grab Malaysia’s Shift-Left quality engineering principles**  to prevent ad-hoc merging, late-stage defect leakage, and race conditions, the standardized **Code Review & Static Analysis** workflow below is modeled in **OMG SPEM 2.0** and applied to our **USM Campus Facility Booking & Concurrency Locking** lifecycle:
 
-**Notion Electronic Process Guide (EPG) Link:** https://app.notion.com/p/Task-1-SPEM-2-0-Process-Modeling-Grab-Shift-Left-Benchmark-Applied-to-Booking-Concurrency-Lockin-41a3730380e28052a264f1a9014ac87a?source=copy_link 
-
 ---
 
 ## 1.1 SPEM 2.0 Process Model: Code Review & Static Analysis
@@ -63,6 +61,8 @@ To enforce unambiguous accountability across 5-member reorganized team structure
 | **D5** | **Concurrency Logic Audit & DoD Verification**| **I** | **C** | **R / A** | **I** | **I** |
 | **D6** | **WP3: Automated Gate Report & DoD Sign-Off Log**| **I** | **I** | **R / A** | **C** | **I** |
 
+---
+
 ## 1.3 Notion Electronic Process Guide (EPG) Relational Architecture & Audit Evidence
 
 To satisfy SPEM 2.0 metamodel traceability rather than relying on static documentation, the Electronic Process Guide (EPG) is implemented in Notion using **three interconnected relational databases**:
@@ -71,17 +71,53 @@ To satisfy SPEM 2.0 metamodel traceability rather than relying on static documen
 2. **`Work Products` Database (`WP1`–`WP3`):** Tracks artifact access modes (`Input`, `Output / Input`, `Output`), quality standards, owning roles, and upstream/downstream task links.
 3. **`Tasks` Database (`T1`–`T2`):** Connects each task and its sequential steps directly to its assigned `Performers`, `Input Work Product`, and `Output Work Product` via live Notion relation chips.
 
-<img width="954" height="455" alt="6bf6f1427b6846bb4f1e3c0ae89babd" src="https://github.com/user-attachments/assets/a5e061a7-a911-4663-a290-2043eca5c932" />
+![Figure 1.3.1: SPEM Roles relational database](images/spem-roles.png)
 
-**Figure 1.3.1: SPEM Roles relational database (`R1`–`R3`).**
+*Figure 1.3.1: SPEM Roles relational database (`R1`–`R3`).*
 
+![Figure 1.3.2: SPEM Work Products relational database](images/spem-work-products.png)
 
-<img width="1191" height="425" alt="c12a177dd68c744b2c6ea25fd19ea5d" src="https://github.com/user-attachments/assets/045c94d8-2af1-48c5-8a65-6473c5ba599b" />
+*Figure 1.3.2: SPEM Work Products relational database (`WP1`–`WP3`).*
 
-**Figure 1.3.2: SPEM Work Products relational database (`WP1`–`WP3`).**
+![Figure 1.3.3: SPEM Tasks relational database](images/spem-task.png)
 
+*Figure 1.3.3: SPEM Tasks relational database (`T1`–`T2`).*
 
-<img width="1381" height="354" alt="afd23ba9e199076b917ef8e5ab98212" src="https://github.com/user-attachments/assets/d58702fb-dc1f-4b8a-b7a5-6598fab476db" />
+---
 
-**Figure 1.3.3: SPEM Tasks relational database (`T1`–`T2`).**
+### Collaborative Audit & Version History Evidence
+
+To verify authentic, multi-member participation across the SPEM 2.0 Electronic Process Guide (EPG) lifecycle, the Notion **Updates** log below captures timestamped edits from all five team members between **16 November and 25 November 2026**. Each member contributed directly to defining, refining, and linking the relational SPEM Roles, Work Products, and Tasks databases:
+
+* **Ooi Ru Shuang (`24304522` [`rushuangooi@student.usm.my`] — Group Leader):** Initialized the Notion EPG workspace, configured public collaboration permissions, authored the Shift-Left Mandate and Zero-Bypass governance policies, and finalized the relational database links across **SPEM Roles**, **SPEM Work Products**, and **SPEM Tasks**.
+
+<img src="images/commit-history(OoiRuShuang).png" alt="Figure 1.3.4: Notion collaborative update history for Ooi Ru Shuang" width="760" />
+
+*Figure 1.3.4: Notion collaborative update history for Ooi Ru Shuang (`24304522`).*
+
+* **Ku Yun Shuang (`24304022` [`yunshuang@student.usm.my`]):** Authored and structured the sequential execution steps for **T1 (Shift-Left GWT Specification & Local Feature Implementation)** and **T2 (Automated Quality Gating, Peer Audit & DoD Sign-Off)**, mapping each task to its assigned performers and input/output work products. 
+
+<img src="images/commit-history(KuYunShuang).png" alt="Figure 1.3.5: Notion collaborative update history for Ku Yun Shuang" width="760" />
+
+*Figure 1.3.5: Notion collaborative update history for Ku Yun Shuang (`24304022`).*
+
+* **Lim Bing Yi (`24304515` [`bingyi06iz@student.usm.my`]):** Established the initial relational table schema for SPEM tasks and mapped primary performers (`DevSecOps / QA Lead` and `Senior Peer Code Reviewer`) to their corresponding input and output artifacts. 
+
+<img src="images/commit-history(LimBingYi).png" alt="Figure 1.3.6: Notion collaborative update history for Lim Bing Yi" width="760" />
+
+*Figure 1.3.6: Notion collaborative update history for Lim Bing Yi (`24304515`).*
+
+* **Chiam Zhi Huai (`24303835` [`zhuai@student.usm.my`]):** Refined the **SPEM Work Products (`WP1`–`WP3`)** database entries, standardizing artifact titles, access modes (`Input`, `Both`, `Output`), and quality standard descriptions for DoR-verified backlog items, Feature PRs, and DoD sign-off logs. 
+
+<img src="images/commit-history(ChiamZhiHuai).png" alt="Figure 1.3.7: Notion collaborative update history for Chiam Zhi Huai" width="760" />
+
+*Figure 1.3.7: Notion collaborative update history for Chiam Zhi Huai (`24303835`).*
+
+* **Cheah Jinn Honn (`24303397` [`jinnhonn@student.usm.my`]):** Defined and updated the **SPEM Roles (`R1`–`R3`)** database, specifying SPEM classifications (`Performer Role` vs. `Reviewer & Gatekeeper Role`), required technical skills, and core responsibilities for concurrency auditing and pre-development GWT checks. 
+
+<img src="images/commit-history(CheahJinnHonn).png" alt="Figure 1.3.8: Notion collaborative update history for Cheah Jinn Honn" width="760" />
+
+*Figure 1.3.8: Notion collaborative update history for Cheah Jinn Honn (`24303397`).*
+
+To verify authentic team participation across the [SPEM 2.0 Electronic Process Guide (EPG)](https://app.notion.com/p/Task-1-SPEM-2-0-Process-Modeling-Grab-Shift-Left-Benchmark-Applied-to-Booking-Concurrency-Lockin-41a3730380e28052a264f1a9014ac87a?source=copy_link), the Notion version history logs below capture timestamped edits from all five group members between 16 and 25 November 2026.
 
