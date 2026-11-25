@@ -71,3 +71,17 @@ To satisfy SPEM 2.0 metamodel traceability rather than relying on static documen
 2. **`Work Products` Database (`WP1`–`WP3`):** Tracks artifact access modes (`Input`, `Output / Input`, `Output`), quality standards, owning roles, and upstream/downstream task links.
 3. **`Tasks` Database (`T1`–`T2`):** Connects each task and its sequential steps directly to its assigned `Performers`, `Input Work Product`, and `Output Work Product` via live Notion relation chips.
 
+<img width="954" height="455" alt="6bf6f1427b6846bb4f1e3c0ae89babd" src="https://github.com/user-attachments/assets/a5e061a7-a911-4663-a290-2043eca5c932" />
+
+**Figure 1.3.1: SPEM Roles relational database (`R1`–`R3`).**
+
+
+<img width="1191" height="425" alt="c12a177dd68c744b2c6ea25fd19ea5d" src="https://github.com/user-attachments/assets/045c94d8-2af1-48c5-8a65-6473c5ba599b" />
+
+**Figure 1.3.2: SPEM Work Products relational database (`WP1`–`WP3`).**
+
+
+<img width="1381" height="354" alt="afd23ba9e199076b917ef8e5ab98212" src="https://github.com/user-attachments/assets/d58702fb-dc1f-4b8a-b7a5-6598fab476db" />
+
+**Figure 1.3.3: SPEM Tasks relational database (`T1`–`T2`).**
+
