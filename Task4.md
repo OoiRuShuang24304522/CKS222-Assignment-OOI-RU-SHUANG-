@@ -1,7 +1,7 @@
 
-# 5. Task 4: Lean Waste Auditing & Extreme Programming (XP) Practice Alignment
+# Task 4: Lean Waste Auditing & Extreme Programming (XP) Practice Alignment
 
-## 5.1 Lean Waste Audit & Remedies
+## 4.1 Lean Waste Audit & Remedies
 
 This audit examines four potential wastes in the proposed GrabCampus facility booking and GrabPay checkout workflow. The examples are scenario-based risks rather than verified incidents at Grab Malaysia.
 
@@ -39,7 +39,7 @@ This audit examines four potential wastes in the proposed GrabCampus facility bo
 
 ---
 
-## 5.2 XP Engineering Practices
+## 4.2 XP Engineering Practices
 
 ### Practice 1: Pair Programming
 
@@ -73,7 +73,7 @@ Pair Programming prevents defects through immediate peer feedback; TDD builds qu
 
 ---
 
-## 5.3 GitHub Repository Evidence (Mandatory)
+## 4.3 GitHub Repository Evidence (Mandatory)
 
 **Repository:** [GitHub Repository Commit History](https://github.com/OoiRuShuang24304522/CKS222-Assignment-OOI-RU-SHUANG-/commits/main/)
 
