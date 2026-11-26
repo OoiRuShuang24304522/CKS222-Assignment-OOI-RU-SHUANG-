@@ -77,12 +77,18 @@ Pair Programming prevents defects through immediate peer feedback; TDD builds qu
 
 **Repository:** [GitHub Repository Commit History](https://github.com/OoiRuShuang24304522/CKS222-Assignment-OOI-RU-SHUANG-/commits/main/)
 
-The screenshots show report-draft contributions from all five accounts between 17 and 24 November 2026. Task 4 was revised on 17, 18 and 20 November. Individual USM email addresses and the full multi-week history still require verification using genuine commit records.
+The screenshots show report-draft contributions from all five accounts between 17 and 26 November 2026. Individual USM email addresses and the full multi-week history still require verification using genuine commit records.
 
-![GitHub repository commit history (19–24 November 2026)](https://github.com/user-attachments/assets/8559e387-561e-444c-90e8-834fd7950df4)
 
-*Figure 5.3.1: GitHub repository commit history (19–24 November 2026)*
 
-![GitHub repository commit history (17–18 November 2026)](https://github.com/user-attachments/assets/6befde65-5345-4c79-8e93-1feb86695053)
+<img width="1920" height="1200" alt="Screenshot (45)" src="https://github.com/user-attachments/assets/a940ac80-3ec3-46ef-aa43-81adc2838a2d" />
 
-*Figure 5.3.2: GitHub repository commit history (17–18 November 2026)*
+*Figure 5.3.1: GitHub repository commit history (26 November 2026)*
+
+<img width="1920" height="1200" alt="Screenshot (46)" src="https://github.com/user-attachments/assets/79e83e39-1d92-49c9-80d0-0c765e9137c6" />
+
+*Figure 5.3.2: GitHub repository commit history (24-25 November 2026)*
+
+<img width="1920" height="1200" alt="Screenshot (48)" src="https://github.com/user-attachments/assets/ac13245e-86a4-4d76-b1af-126163e98f3b" />
+
+*Figure 5.3.2: GitHub repository commit history (17-18 November 2026)*
